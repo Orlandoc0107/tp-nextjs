@@ -13,7 +13,6 @@ export default function ButtonAuth() {
 
     return (
       <>
-        
         <button onClick={() => signOut()}>Desconectar</button>
       </>
     );
@@ -21,7 +20,6 @@ export default function ButtonAuth() {
 
   return (
     <>
-      Desconectar<br />
       <button onClick={() => signIn()}>Ingresar</button>
     </>
   );

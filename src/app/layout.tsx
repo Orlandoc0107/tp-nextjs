@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <body>
+      <body >
       <SessionAuthProvider>
       {children}
       </SessionAuthProvider>

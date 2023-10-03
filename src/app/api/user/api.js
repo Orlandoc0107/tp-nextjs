@@ -1,7 +1,6 @@
 // user/api.js
 
 export const userDatos = {
-  id: 0,
   usuario: "",
   nombre: "",
   apellido: "",
