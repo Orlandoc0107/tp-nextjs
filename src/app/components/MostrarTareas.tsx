@@ -8,8 +8,9 @@ interface Tarea {
   fianlizado: string;
 }
 import { useEffect, useState } from 'react';
-import { useSession } from 'next-auth/react'; // No necesitas importar signIn y signOut si no los usas
-import { mostrarTareas } from "../api/tareas/api";
+import { useSession } from 'next-auth/react';
+import ContainerTareas from './ContainerTareas';
+
 
 async function getData(token: string) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}tareas/vertodo/`, {
@@ -47,17 +48,11 @@ export default function MostrarTareas() { // Cambia el nombre de la función a u
 
   return (
     <main>
-      <ul>
-        {tareas.map(tarea => (
-          <li key={tarea.id}>
-            <h2>ID: {tarea.id}</h2>
-            <h2>{tarea.titulo}</h2>
-            <p>{tarea.descripcion}</p>
-            <p>Creado: {tarea.creado}</p>
-            <p>Finalizado: {tarea.fianlizado ? 'Sí' : 'No'}</p>
-          </li>
+      <div>
+        {tareas.map((tarea: Tarea) => ( // Donde Tarea es el tipo de tus tareas
+          <ContainerTareas tarea={tarea} key={tarea.id}/>
         ))}
-      </ul>
+      </div>
     </main>
   )
-}
+  }
