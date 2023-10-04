@@ -26,3 +26,25 @@ export async function crearTarea({
   const responseData = await response.json();
   return { response: responseData, formData: { titulo, descripcion, user } };
 }
+
+
+/// Mostrar todas las tareas
+
+
+export async function mostrarTareas({
+  token,
+}) {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}tareas/vertodo/`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+
+  const responseData = await response.json();
+  return { response: responseData };
+}
