@@ -1,39 +1,26 @@
 'use client'
-
-import Header from '../components/Header';
+import Link from 'next/link';
+import React, { useState } from 'react';
+import CrearTarea from '../components/CrearTarea'
 import Footer from '../components/Footer';
+import Header from '../components/Header';
 
-const Tareas = () => {
+const App = () => {
+  const [creartareas, setCreartareas] = useState(false);
+  const [actualizartareas, setActualizartareas] = useState(false)
+  const toggleFormulario = () => {
+    setCreartareas(!creartareas);
+  };
 
   return (
     <div>
       <Header/>
-      <h1>Pagina de Tareas</h1>
-      <div>
-        <div>
-          <h2>Titulo: <input/></h2>
-
-        </div>
-        <div>
-          <h2>Descripcion: <input/></h2>
-        </div>
-        <div>
-          <h2>
-            Creado :<div></div>
-          </h2>
-        </div>
-        <div>
-          <h2>Finalizado</h2>
-          <input/>
-        </div>
-        <div>
-          <button>Crear</button>
-          <button>Eliminar</button>
-          <button>Actualizar</button>
-        </div>
-      </div>
+      <h1>Tareas</h1>
+      <button onClick={toggleFormulario}>Crear</button>
+      {creartareas && <CrearTarea/>}
       <Footer/>
     </div>
-  )
-}
-export default Tareas;
+  );
+};
+
+export default App;

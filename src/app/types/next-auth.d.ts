@@ -1,13 +1,16 @@
+// next-auth.d.ts
+
 import "next-auth";
 
 declare module "next-auth" {
   interface Session {
     user: {
       access_token: string;
-      usuario: string;
-      nombre: string;
-      apellido: string;
-      email: string;
+      refresh_token: string;
+      iat: number;
+      exp: number;
+      jti: string;
+      expires: string;
     };
   }
 }

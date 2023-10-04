@@ -31,9 +31,11 @@ export const AuthOptions: NextAuthOptions = {
   ],
   callbacks: {
     async jwt({ token, user }) {
+      // Aquí puedes personalizar el token si es necesario
       return { ...token, ...user };
     },
     async session({ session, token }) {
+      // Aquí puedes personalizar la sesión si es necesario
       session.user = token as any;
       return session;
     },
