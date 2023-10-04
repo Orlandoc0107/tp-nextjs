@@ -1,5 +1,7 @@
+'use client'
 
 import React from 'react';
+import { useRouter } from 'next/navigation';
 
 // Define un tipo para la estructura de tus tareas
 interface Tarea {
@@ -17,9 +19,13 @@ interface ContainerTareasProps {
 
 export default function ContainerTareas(props: ContainerTareasProps) {
   const { tarea } = props;
+  const router = useRouter()
 
   return (
-    <div>
+    <div
+      onClick={() => {
+        router.push('/modificar/tarea/' + tarea.id)
+      }}>
       <hr />
       <h2>ID: {tarea.id}</h2>
       <h2>{tarea.titulo}</h2>

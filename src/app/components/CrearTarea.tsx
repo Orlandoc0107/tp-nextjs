@@ -1,12 +1,11 @@
 'use client'
 
-import { useState } from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import { useEffect, useState } from 'react';
 import { crearTarea } from '../api/tareas/api';
 import { signIn, signOut, useSession } from 'next-auth/react';
 
-const CrearTarea = () => {
+function CrearTarea({}){
+
   const { data: session, status } = useSession();
   const [titulo, setTitulo] = useState<string>('');
   const [descripcion, setDescripcion] = useState<string>('');

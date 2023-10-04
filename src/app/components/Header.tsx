@@ -17,21 +17,13 @@ export default function Header() {
       <>
         <div>
           <div>
-            <ul>
-              <li>
                 <ButtonAuth />
-              </li>
-              <li>
                 <Link href="/perfil">
                   <button>Mi Perfil</button>
                 </Link>
-              </li>
-              <li>
                 <Link href="/tareas">
-                  <button>Mi Tareas</button>
+                  <button>Mis Tareas</button>
                 </Link>
-              </li>
-            </ul>
           </div>
         </div>
       </>

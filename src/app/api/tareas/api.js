@@ -48,3 +48,33 @@ export async function mostrarTareas({
   const responseData = await response.json();
   return { response: responseData };
 }
+
+
+/// Actualizar Tarea
+
+export default async function ActualizarTarea({
+  titulo,
+  descripcion,
+  user,
+  token,
+  tareaid
+}) {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/actualizar/${tareaid}/`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        titulo,
+        descripcion,
+        user:1,
+      }),
+    }
+  );
+
+  const responseData = await response.json();
+  return { response: responseData, formData: { titulo, descripcion, user } };
+}

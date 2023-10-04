@@ -50,9 +50,9 @@ export default function MostrarTareas() { // Cambia el nombre de la función a u
     <main>
       <div>
         {tareas.map((tarea: Tarea) => ( // Donde Tarea es el tipo de tus tareas
-          <ContainerTareas tarea={tarea} key={tarea.id}/>
+          <ContainerTareas tarea={tarea} key={tarea.id} />
         ))}
       </div>
     </main>
   )
-  }
+}
