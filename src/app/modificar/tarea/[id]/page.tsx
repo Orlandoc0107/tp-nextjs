@@ -61,13 +61,15 @@ export default function ModificarTareas({ params }: { params: any }) {
     const [tareaData, setTareaData] = useState<any>({});
     const [loading, setLoading] = useState(true);
     const router = useRouter();
+    const [formularioVisible, setFormularioVisible] = useState(false);
 
     const [nuevaData, setNuevaData] = useState({
-        titulo: tareaData.titulo,
-        descripcion: tareaData.descripcion,
-        finalizado: tareaData.finalizado,
-        user: tareaData.user, // Asegúrate de incluir el usuario si es necesario
+        titulo: '',
+        descripcion: '',
+        finalizado: false,
+        user: '',
     });
+
     const handleBorrarTarea = async () => {
         if (token && tareaId) {
             await borrarTarea(token, tareaId);
@@ -80,6 +82,7 @@ export default function ModificarTareas({ params }: { params: any }) {
             verTarea(token, tareaId)
                 .then(data => {
                     setTareaData(data);
+                    setNuevaData(data);
                     setLoading(false);
                     console.log(data);
                 })
@@ -90,18 +93,26 @@ export default function ModificarTareas({ params }: { params: any }) {
         }
     }, [token, tareaId]);
 
+    const handleMostrarFormulario = () => {
+        setFormularioVisible(true);
+    };
+
+
     const handleGuardar = async () => {
+        // Actualizar la tarea con los datos de nuevaData
         if (token && tareaId) {
             await editarTarea(token, tareaId, nuevaData);
-            setTareaData(nuevaData);
+            // Redirigir después de guardar
+            router.push('/');
         }
     };
+
 
     return (
         <div>
             <Header />
             <h1>Tarea</h1>
-            {loading ? (
+            {status === 'loading' ? (
                 <p>Cargando...</p>
             ) : (
                 <div>
@@ -117,39 +128,45 @@ export default function ModificarTareas({ params }: { params: any }) {
                     <div>
                         <p>Finalizacion: {tareaData.finalizado ? "Finalizado" : "No Finalizado"}</p>
                     </div>
-                    <div>
-                        <h2>Editar Tarea</h2>
-                        <form onSubmit={(e) => {
-                            e.preventDefault();
-                            handleGuardar();
-                        }}>
-                            <label>
-                                Título:
-                                <input
-                                    type="text"
-                                    value={nuevaData.titulo}
-                                    onChange={(e) => setNuevaData({ ...nuevaData, titulo: e.target.value })}
-                                />
-                            </label>
-                            <label>
-                                Descripción:
-                                <input
-                                    type="text"
-                                    value={nuevaData.descripcion}
-                                    onChange={(e) => setNuevaData({ ...nuevaData, descripcion: e.target.value })}
-                                />
-                            </label>
-                            <label>
-                                Finalizado:
-                                <input
-                                    type="checkbox"
-                                    checked={nuevaData.finalizado}
-                                    onChange={(e) => setNuevaData({ ...nuevaData, finalizado: e.target.checked })}
-                                />
-                            </label>
-                            <button type="submit">Guardar</button>
-                        </form>
-                    </div>
+                    {formularioVisible && (
+                        <div>
+                            <h2>Editar Tarea</h2>
+                            <form onSubmit={(e) => {
+                                e.preventDefault();
+                                handleGuardar();
+                            }}>
+                                <label>
+                                    Título:
+                                    <input
+                                        type="text"
+                                        value={nuevaData.titulo}
+                                        onChange={(e) => setNuevaData({ ...nuevaData, titulo: e.target.value })}
+                                    />
+                                </label>
+                                <label>
+                                    Descripción:
+                                    <input
+                                        type="text"
+                                        value={nuevaData.descripcion}
+                                        onChange={(e) => setNuevaData({ ...nuevaData, descripcion: e.target.value })}
+                                    />
+                                </label>
+
+                                <label>
+                                    Finalizado:
+                                    <input
+                                        type="checkbox"
+                                        checked={nuevaData.finalizado}
+                                        onChange={(e) => setNuevaData({ ...nuevaData, finalizado: e.target.checked })}
+                                    />
+                                </label>
+
+                                <button type="submit">Guardar</button>
+                            </form>
+                        </div>
+                    )}
+                    <button onClick={handleBorrarTarea}>Borrar</button>
+                    <button onClick={handleMostrarFormulario}>Editar</button>
                 </div>
             )}
             <Footer />
