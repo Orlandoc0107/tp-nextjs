@@ -15,14 +15,18 @@ export default function Header() {
   if (session) {
     return (
       <>
-        <div>
+        <div className="bg-cyan-600">
           <div>
                 <ButtonAuth />
                 <Link href="/perfil">
-                  <button>Mi Perfil</button>
+                  <button 
+                  className="bg-blue-500 text-white font-bold px-4 py-2 rounded mx-2 my-2 border-double border-4 border-sky-500 ..." 
+                  >Mi Perfil</button>
                 </Link>
                 <Link href="/tareas">
-                  <button>Mis Tareas</button>
+                  <button 
+                  className="bg-blue-500 text-white font-bold px-4 py-2 rounded mx-2 my-2 border-double border-4 border-sky-500 ..." 
+                  >Mis Tareas</button>
                 </Link>
           </div>
         </div>
@@ -32,11 +36,13 @@ export default function Header() {
   // Si el nohay usuario return entonces regresa esto otro.
   return (
       <>
-        <div>
+        <div className="bg-cyan-600 bg-cyan-950 flex justify-center ...">
           <div>
                 <ButtonAuth />
                 <Link href="/register">
-                  <button>Registrar</button>
+                  <button
+                  className="bg-blue-500 text-white font-bold px-4 py-2 rounded mx-2 my-2 border-double border-4 border-sky-500 ..." 
+                  >Registrar</button>
                 </Link>
           </div>
         </div>

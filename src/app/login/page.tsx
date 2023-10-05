@@ -34,10 +34,9 @@ const LoginPage = () => {
     return (
         <div>
             <Header />
-            <div>
-
-                <h1>Login</h1>
-                <form onSubmit={handleSubmit}>
+            <div className="px-16 py-14 mx-14 my-14 ">
+                <form onSubmit={handleSubmit} className="px-18 py-16 mx-16 my-16 ">
+                    <h1>Login</h1>
                     <input
                         type="texto"
                         placeholder="username"

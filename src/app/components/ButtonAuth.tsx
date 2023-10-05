@@ -13,14 +13,18 @@ export default function ButtonAuth() {
 
     return (
       <>
-        <button onClick={() => signOut()}>Desconectar</button>
+        <button 
+        className="bg-blue-500 text-white font-bold px-4 py-2 rounded mx-2 my-2 border-double border-4 border-sky-500 ..." 
+        onClick={() => signOut()}>Desconectar</button>
       </>
     );
   }
 
   return (
     <>
-      <button onClick={() => signIn()}>Ingresar</button>
+      <button
+      className="bg-blue-500 text-white font-bold px-4 py-2 rounded mx-2 my-2 border-double border-4 border-sky-500 ..." 
+      onClick={() => signIn()}>Ingresar</button>
     </>
   );
 }

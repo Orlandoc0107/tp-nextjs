@@ -3,6 +3,7 @@ import React, { ReactNode } from "react";
 import { Metadata } from "next";
 import SessionAuthProvider from "../context/SessionAuthProvider"
 
+
 export const metadata: Metadata = {
   title: "TP - AP",
   description: "TP - Argentina Programa",
@@ -19,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <body >
+      <body className="bg-gray-600">
       <SessionAuthProvider>
       {children}
       </SessionAuthProvider>
