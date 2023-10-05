@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <body className="bg-gray-600">
+      <body>
       <SessionAuthProvider>
       {children}
       </SessionAuthProvider>
