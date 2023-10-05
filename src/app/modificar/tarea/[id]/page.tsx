@@ -4,6 +4,21 @@ import { useEffect, useState } from 'react';
 import { useSession } from "next-auth/react";
 import Header from '@/app/components/Header';
 import Footer from '@/app/components/Footer';
+import { useRouter } from 'next/navigation';
+
+async function borrarTarea(token: string, tareaId: string) {
+    const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}tareas/borrar/${tareaId}/`,
+        {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`, 
+            },
+        }
+    );
+}
+
 
 async function verTarea(token: string, tareaId: string) {
     const res = await fetch(
@@ -27,10 +42,16 @@ export default function ModificarTareas({ params }: { params: any }) {
     const { data: session, status } = useSession();
     const token = (session?.user.access_token);
     const tareaId = params.id;
-    
-    // Estados para los datos de la tarea y el estado de carga
     const [tareaData, setTareaData] = useState<any>({});
     const [loading, setLoading] = useState(true);
+    const router = useRouter();
+
+    const handleBorrarTarea = async () => {
+        if (token && tareaId) {
+          await borrarTarea(token, tareaId);
+          router.push('/');
+        }
+      };
 
     useEffect(() => {
         if (token && tareaId) {
@@ -49,7 +70,7 @@ export default function ModificarTareas({ params }: { params: any }) {
 
     return (
         <div>
-            <Header/>
+            <Header />
             <h1>Tarea</h1>
             {loading ? (
                 <p>Cargando...</p>
@@ -67,9 +88,11 @@ export default function ModificarTareas({ params }: { params: any }) {
                     <div>
                         <p>Finalizacion: {tareaData.finalizado ? "Finalizado" : "No Finalizado"}</p>
                     </div>
+                    
                 </div>
             )}
-            <Footer/>
+            <button onClick={handleBorrarTarea}>Borrar</button>
+            <Footer />
         </div>
     );
 }
