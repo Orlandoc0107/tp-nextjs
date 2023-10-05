@@ -5,7 +5,7 @@ const Footer = () => {
     <>
     <div>
       <div>
-        <p>Trabajo Practico - Argentina Programa - 2023 </p>
+        <p>Foother</p>
       </div>
     </div>
     </>

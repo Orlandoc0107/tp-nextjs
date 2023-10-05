@@ -34,16 +34,10 @@ export default function Header() {
       <>
         <div>
           <div>
-            <ul>
-              <li>
                 <ButtonAuth />
-              </li>
-              <li>
                 <Link href="/register">
                   <button>Registrar</button>
                 </Link>
-              </li>
-            </ul>
           </div>
         </div>
       </>
