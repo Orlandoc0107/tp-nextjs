@@ -5,9 +5,9 @@ const Home = () => {
   return(
     <>
     <Header/>
-    <main>
-      <h1>Home</h1>
-    </main>
+    <div className="bg-gray-600 w-screen h-screen flex justify-center items-center">
+    <h1 className="text-white text-center py-8">Home</h1>
+    </div>
     <Footer/>
     </>
   )
