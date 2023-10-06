@@ -34,8 +34,8 @@ const Perfil = () => {
       <div className="bg-gray-300 w-screen h-screen flex justify-center">
         {userData && (
           <>
-          <div className="flex justify-center items-center">
-            <div className="bg-cyan-900 px-8 py-8 ">Datos:
+          <div className="bg-gray-600 w-screen h-screen flex justify-center items-center">
+            <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">Datos:
               <div>
                 Nombre: {userData.nombre}
               </div>

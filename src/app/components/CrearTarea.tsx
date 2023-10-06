@@ -31,10 +31,8 @@ function CrearTarea({ }) {
   };
 
   return (
-    <div>
-      <h1
-      >Crear Tarea</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="bg-gray-300 w-screen h-screen flex justify-center items-center grid-rows-1">
+      <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 grid grid-flow-row-dense col-span-2">
         <div>
           <h2>
             Titulo: <input
@@ -60,11 +58,11 @@ function CrearTarea({ }) {
         <div>
           <button type="submit"
             className="bg-blue-500 text-white font-bold px-4 py-2 rounded mx-2 my-2 border-double border-4 border-sky-500 ..."
-          >Enviar</button>
-          {/* Agrega botones para eliminar y actualizar si es necesario */}
-        </div>
+          >Crear</button>
+          {mensajeConfirmacion && <p>{mensajeConfirmacion} </p>}
+          </div>
       </form>
-      {mensajeConfirmacion && <p>{mensajeConfirmacion}</p>}
+      <br/>
     </div>
   );
 };

@@ -20,19 +20,27 @@ interface ContainerTareasProps {
 export default function ContainerTareas(props: ContainerTareasProps) {
   const { tarea } = props;
   const router = useRouter()
-
-  return (
+  const fechaCreacion = new Date(tarea.creado);
+  //
+  const dia = fechaCreacion.getDate();
+  const mes = fechaCreacion.getMonth() + 1;
+  const anio = fechaCreacion.getFullYear();
+  const hora = fechaCreacion.getHours();
+  const minutos = fechaCreacion.getMinutes();
+  //
+  const fechaHoraFormateada = `${dia}/${mes}/${anio} Hora: ${hora}:${minutos}`;  return (
     <div
       onClick={() => {
         router.push('/modificar/tarea/' + tarea.id)
       }}>
       <hr />
-      <h2>ID: {tarea.id}</h2>
-      <h2>{tarea.titulo}</h2>
-      <p>{tarea.descripcion}</p>
-      <p>Creado: {tarea.creado}</p>
+      <div>
+      <h2>Titulo: {tarea.titulo}</h2>
+      <p> Descripcion: {tarea.descripcion}</p>
+      <p>Creado: {fechaHoraFormateada}</p>
       <p>Finalizado: {tarea.finalizado ? 'Sí' : 'No'}</p>
       <hr />
+      </div>
     </div>
   );
 }

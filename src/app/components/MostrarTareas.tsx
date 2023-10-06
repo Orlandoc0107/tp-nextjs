@@ -5,7 +5,7 @@ interface Tarea {
   titulo: string;
   descripcion: string;
   creado: string;
-  fianlizado: string;
+  finalizado: boolean;
 }
 import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
@@ -28,11 +28,10 @@ async function getData(token: string) {
   return res.json();
 }
 
-export default function MostrarTareas() { // Cambia el nombre de la función a una convención de React (con mayúscula)
+export default function MostrarTareas() { 
   const { data: session } = useSession();
-  const [tareas, setTareas] = useState<Tarea[]>([]); // Indica el tipo de tareas como un arreglo de Tarea
+  const [tareas, setTareas] = useState<Tarea[]>([]); 
   const token = session?.user?.access_token;
-
 
   useEffect(() => {
     if (token) {
@@ -48,7 +47,7 @@ export default function MostrarTareas() { // Cambia el nombre de la función a u
 
   return (
     <main>
-      <div>
+      <div className="max-h-80 overflow-y-auto h-40 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg px-2 py-2">
         {tareas.map((tarea: Tarea) => ( // Donde Tarea es el tipo de tus tareas
           <ContainerTareas tarea={tarea} key={tarea.id} />
         ))}

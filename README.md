@@ -1,3 +1,14 @@
+# FrontEnd 
+NextJs/Reactjs/NextAuth/tailwindcss
+
+https://tp-nextjs-drab.vercel.app/
+https://tp-nextjs-gmyyjwp9p-orlandoc0107.vercel.app/
+
+# BackEnd
+Python 3.10 / SQLite /
+http://orlandodemontero.pythonanywhere.com/tareas/docs/
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
