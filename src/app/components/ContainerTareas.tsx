@@ -33,15 +33,21 @@ export default function ContainerTareas(props: ContainerTareasProps) {
       onClick={() => {
         router.push('/modificar/tarea/' + tarea.id)
       }}>
-      <hr />
-      <div>
-      <h2>Titulo: {tarea.titulo}</h2>
-      <p> Descripcion: {tarea.descripcion}</p>
-      <p>Creado: {fechaHoraFormateada}</p>
-      <p>Finalizado: {tarea.finalizado ? 'Sí' : 'No'}</p>
-      <hr />
+
+      <div className="hover:bg-sky-700">
+        <div className='max-w-lg mx-auto p-8'>
+        <details className="open:bg-white dark:open:bg-slate-900 open:ring-1 open:ring-black/5 dark:open:ring-white/10 open:shadow-lg p-6 rounded-lg" open>
+        <summary className="text-sm leading-6 text-slate-900 dark:text-white font-semibold select-none">
+          <h2>Titulo: {tarea.titulo}</h2>
+          </summary>
+          <div className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-400">
+            <p>Descripcion: {tarea.descripcion}</p>
+            <p>Creado: {tarea.creado}</p>
+            <p>Finalizado: {tarea.finalizado}</p>
+          </div>
+          </details>
+        </div>
       </div>
     </div>
   );
 }
-

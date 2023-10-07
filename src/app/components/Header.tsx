@@ -36,7 +36,7 @@ export default function Header() {
   // Si el nohay usuario return entonces regresa esto otro.
   return (
       <>
-        <div className="bg-cyan-600 bg-cyan-950 flex justify-center ...">
+        <div className=" bg-cyan-950 flex justify-center ...">
           <div>
                 <ButtonAuth />
                 <Link href="/register">

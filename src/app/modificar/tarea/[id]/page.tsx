@@ -161,12 +161,12 @@ export default function ModificarTareas({ params }: { params: any }) {
                                     />
                                 </label>
 
-                                <button type="submit">Guardar</button>
+                                <button type="submit" className="active:bg-blue-600 ...">Guardar</button>
                             </form>
                         </div>
                     )}
-                    <button onClick={handleBorrarTarea}>Borrar</button>
-                    <button onClick={handleMostrarFormulario}>Editar</button>
+                    <button onClick={handleBorrarTarea} className="active:bg-blue-600 ...">Borrar</button>
+                    <button onClick={handleMostrarFormulario} className="active:bg-blue-600 ...">Editar</button>
                 </div>
             )}
             <Footer />

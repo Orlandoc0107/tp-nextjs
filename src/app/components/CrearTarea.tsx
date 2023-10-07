@@ -26,7 +26,7 @@ function CrearTarea({ }) {
     });
     if (result) {
       setTareaCreada(result.response); // Almacena la tarea creada
-      setMensajeConfirmacion('Tarea creada con éxito'); // Establece un mensaje de confirmación
+      setMensajeConfirmacion('Tarea creada con éxito, Desea Crear otra ?'); // Establece un mensaje de confirmación
     }
   };
 
@@ -57,7 +57,7 @@ function CrearTarea({ }) {
         </div>
         <div>
           <button type="submit"
-            className="bg-blue-500 text-white font-bold px-4 py-2 rounded mx-2 my-2 border-double border-4 border-sky-500 ..."
+            className="bg-blue-500 text-white font-bold px-4 py-2 rounded mx-2 my-2 border-double border-4 border-sky-500 ... active:bg-blue-600 ..."
           >Crear</button>
           {mensajeConfirmacion && <p>{mensajeConfirmacion} </p>}
           </div>

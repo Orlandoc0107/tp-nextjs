@@ -47,8 +47,8 @@ export default function MostrarTareas() {
 
   return (
     <main>
-      <div className="max-h-80 overflow-y-auto h-40 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg px-2 py-2">
-        {tareas.map((tarea: Tarea) => ( // Donde Tarea es el tipo de tus tareas
+      <div className="max-h-60 overflow-y-auto bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg px-1 py-1 hover:bg-sky-900 active:bg-blue-600 ...">
+        {tareas.map((tarea: Tarea) => ( 
           <ContainerTareas tarea={tarea} key={tarea.id} />
         ))}
       </div>

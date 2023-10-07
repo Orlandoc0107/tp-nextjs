@@ -120,7 +120,7 @@ const RegisterPage = () => {
           />
           <br />
           <button type="submit"
-            className="bg-blue-500 text-white font-bold px-4 py-2 rounded mx-2 my-2 border-double border-4 border-sky-500 ..."
+            className="bg-blue-500 text-white font-bold px-4 py-2 rounded mx-2 my-2 border-double border-4 border-sky-500 ... active:bg-blue-600 ..."
           >Enviar</button>
         </form>
         {Object.keys(errors).length > 0 && (
