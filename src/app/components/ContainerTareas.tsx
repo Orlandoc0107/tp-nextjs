@@ -34,18 +34,14 @@ export default function ContainerTareas(props: ContainerTareasProps) {
         router.push('/modificar/tarea/' + tarea.id)
       }}>
 
-      <div className="hover:bg-sky-700">
-        <div className='max-w-lg mx-auto p-4'>
-        <details className="open:bg-white dark:open:bg-slate-900 open:ring-1 open:ring-black/5 dark:open:ring-white/10 open:shadow-lg p-6 rounded-lg" open>
-        <summary className="text-sm leading-6 text-slate-900 dark:text-white font-semibold select-none">
-          <h2>Titulo: {tarea.titulo}</h2>
-          </summary>
-          <div className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-400">
-            <p>Descripcion: {tarea.descripcion}</p>
-            <p>Creado: {tarea.creado}</p>
-            <p>Finalizado: {tarea.finalizado}</p>
+      <div className="group block max-w-xs mx-auto rounded-lg p-6 bg-black ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 cursor-pointer">
+        <div className="flex items-center space-x-3">
+          <h2 className="text-slate-900 group-hover:text-white text-sm font-semibold">Titulo: {tarea.titulo}</h2>
+          <div>
+            <p className="text-slate-500 group-hover:text-white text-sm">Descripcion: {tarea.descripcion}</p>
+            <p className="text-slate-500 group-hover:text-white text-sm">Creado: {tarea.creado}</p>
+            <p className="text-slate-500 group-hover:text-white text-sm">Finalizado: {tarea.finalizado}</p>
           </div>
-          </details>
         </div>
       </div>
     </div>
