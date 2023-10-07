@@ -111,11 +111,11 @@ export default function ModificarTareas({ params }: { params: any }) {
     return (
         <div>
             <Header />
-            <h1>Tarea</h1>
             {status === 'loading' ? (
                 <p>Cargando...</p>
             ) : (
-                <div>
+                <div className="bg-gray-600 w-screen h-screen flex justify-center items-center">
+                    <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                     <div>
                         <p>Titulo: {tareaData.titulo}</p>
                     </div>
@@ -128,16 +128,22 @@ export default function ModificarTareas({ params }: { params: any }) {
                     <div>
                         <p>Finalizacion: {tareaData.finalizado ? "Finalizado" : "No Finalizado"}</p>
                     </div>
+                    </div>
                     {formularioVisible && (
                         <div>
-                            <h2>Editar Tarea</h2>
-                            <form onSubmit={(e) => {
+
+                            <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 m-5" onSubmit={(e) => {
                                 e.preventDefault();
                                 handleGuardar();
                             }}>
                                 <label>
                                     Título:
                                     <input
+                                                            className="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+                    focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+                    disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+                    invalid:border-pink-500 invalid:text-pink-600
+                    focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
                                         type="text"
                                         value={nuevaData.titulo}
                                         onChange={(e) => setNuevaData({ ...nuevaData, titulo: e.target.value })}
@@ -146,6 +152,11 @@ export default function ModificarTareas({ params }: { params: any }) {
                                 <label>
                                     Descripción:
                                     <input
+                                                            className="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+                                                            focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+                                                            disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+                                                            invalid:border-pink-500 invalid:text-pink-600
+                                                            focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
                                         type="text"
                                         value={nuevaData.descripcion}
                                         onChange={(e) => setNuevaData({ ...nuevaData, descripcion: e.target.value })}
@@ -153,20 +164,21 @@ export default function ModificarTareas({ params }: { params: any }) {
                                 </label>
 
                                 <label>
-                                    Finalizado:
+                                    Finalizado  
                                     <input
+
                                         type="checkbox"
                                         checked={nuevaData.finalizado}
                                         onChange={(e) => setNuevaData({ ...nuevaData, finalizado: e.target.checked })}
                                     />
                                 </label>
 
-                                <button type="submit" className="active:bg-blue-600 ...">Guardar</button>
+                                <button type="submit" className="bg-blue-500 text-white font-bold px-4 py-2 rounded mx-2 my-2 border-double border-4 border-sky-500 ... active:bg-blue-600 ...">Guardar</button>
                             </form>
                         </div>
                     )}
-                    <button onClick={handleBorrarTarea} className="active:bg-blue-600 ...">Borrar</button>
-                    <button onClick={handleMostrarFormulario} className="active:bg-blue-600 ...">Editar</button>
+                    <button onClick={handleBorrarTarea} className="bg-blue-500 text-white font-bold px-4 py-2 rounded mx-2 my-2 border-double border-4 border-sky-500 ... active:bg-blue-600 ...">Borrar</button>
+                    <button onClick={handleMostrarFormulario} className="bg-blue-500 text-white font-bold px-4 py-2 rounded mx-2 my-2 border-double border-4 border-sky-500 ... active:bg-blue-600 ...">Editar</button>
                 </div>
             )}
             <Footer />
