@@ -15,8 +15,8 @@ export default function Header() {
   if (session) {
     return (
       <>
-        <div className="bg-cyan-600">
-          <div>
+        <div className=" bg-cyan-950">
+          <div className="flex justify-end ...">
                 <ButtonAuth />
                 <Link href="/perfil">
                   <button 
@@ -36,8 +36,8 @@ export default function Header() {
   // Si el nohay usuario return entonces regresa esto otro.
   return (
       <>
-        <div className=" bg-cyan-950 flex justify-center ...">
-          <div>
+        <div className=" bg-cyan-950">
+          <div className="flex justify-end ...">
                 <ButtonAuth />
                 <Link href="/register">
                   <button

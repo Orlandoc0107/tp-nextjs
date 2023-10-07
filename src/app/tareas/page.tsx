@@ -28,16 +28,24 @@ const App = () => {
 
   return (
     <div>
-      <Header />
-      <div className="bg-gray-400 w-screen h-screen flex justify-center items-center">
+      <Header/>
+      <div className="bg-gray-500 w-screen h-screen flex justify-center items-center">
+        <div className="justify-center items-center">
         <button onClick={toggleCrearTareas}         
         className="bg-blue-500 text-white font-bold px-4 py-2 rounded mx-2 my-2 border-double border-4 border-sky-500 ... active:bg-blue-600 ..." 
         >Crear</button>
         <button onClick={toggleMostrarTareas}
         className="bg-blue-500 text-white font-bold px-4 py-2 rounded mx-2 my-2 border-double border-4 border-sky-500 ... active:bg-blue-600 ..." 
         >Mostrar Tareas</button>
+        <div>
+          <br/>
+          <br/>
         {creartareas && <CrearTarea />}
+        </div>
+        <div>
         {mostrarTareas && <ComponenteMostrarTareas />}
+        </div>
+        </div>
       </div>
       <Footer />
     </div>

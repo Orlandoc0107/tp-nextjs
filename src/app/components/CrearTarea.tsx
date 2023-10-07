@@ -31,7 +31,7 @@ function CrearTarea({ }) {
   };
 
   return (
-    <div className="bg-gray-300 w-screen h-screen flex justify-center items-center grid-rows-1">
+    <div>
       <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 grid grid-flow-row-dense col-span-2">
         <div>
           <h2>
