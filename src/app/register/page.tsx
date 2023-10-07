@@ -35,19 +35,14 @@ const RegisterPage = () => {
     });
 
     if (result.response.message) {
-      // Mostrar el mensaje del backend en una alerta
       window.alert(result.response.message);
       router.push("/");
     } else {
       const errorMessages: ErrorMessages = result.response;
-
-      // Mostrar los mensajes de error en el DOM
       setErrors(errorMessages);
-      // Incrementa el contador de intentos
       setAttempts(attempts + 1);
     }
 
-    // Si el usuario ha intentado tres veces sin éxito, redirige al home
     if (attempts >= 3) {
       router.push("/");
     }
@@ -56,7 +51,7 @@ const RegisterPage = () => {
   return (
     <div>
       <Header />
-      <div className="bg-gray-600 w-screen h-screen flex justify-center items-center">
+      <div className="bg-gray-300 w-screen h-screen flex justify-center items-center">
         <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
           <h1 className="justify-center">Registrar</h1>
           <input
@@ -79,7 +74,7 @@ const RegisterPage = () => {
                                   invalid:border-pink-500 invalid:text-pink-600
                                   focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
             type="text"
-            placeholder="first_name"
+            placeholder="First Name"
             name="first_name"
             value={first_name}
             onChange={(event) => setFirst_name(event.target.value)}
@@ -92,7 +87,7 @@ const RegisterPage = () => {
                     invalid:border-pink-500 invalid:text-pink-600
                     focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
             type="text"
-            placeholder="last_name"
+            placeholder="Last Name"
             name="last_name"
             value={last_name}
             onChange={(event) => setLast_name(event.target.value)}
