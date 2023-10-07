@@ -35,7 +35,7 @@ export default function ContainerTareas(props: ContainerTareasProps) {
       }}>
 
       <div className="hover:bg-sky-700">
-        <div className='max-w-lg mx-auto p-8'>
+        <div className='max-w-lg mx-auto p-4'>
         <details className="open:bg-white dark:open:bg-slate-900 open:ring-1 open:ring-black/5 dark:open:ring-white/10 open:shadow-lg p-6 rounded-lg" open>
         <summary className="text-sm leading-6 text-slate-900 dark:text-white font-semibold select-none">
           <h2>Titulo: {tarea.titulo}</h2>
