@@ -6,7 +6,7 @@ const Home = () => {
     <>
     <Header/>
     <div className="bg-gray-600 w-screen h-screen flex justify-center items-center">
-    <h1 className="text-white text-center py-8">Home</h1>
+    <h1 className="text-white text-center py-8 text-5xl font-bold text-red-600">Home</h1>
     </div>
     <Footer/>
     </>
